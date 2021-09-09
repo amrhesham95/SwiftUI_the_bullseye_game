@@ -7,10 +7,30 @@
 
 import SwiftUI
 
+// MARK: - ContentView
+//
 struct ContentView: View {
+    
+    // MARK: - Properties
+    @State var isAlertPresented: Bool = false
+    
+    // MARK: - Body
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            Text("Welcome to my first app!")
+                .fontWeight(.heavy)
+                .foregroundColor(.green)
+                .padding()
+            
+            Button(action: {
+                isAlertPresented = true
+            }) {
+                Text("Hit me!")
+            }
+            .alert(isPresented: $isAlertPresented) {
+                Alert(title: Text("Hello there!"), message: Text("This is my first pop-up"), dismissButton: .default(Text("dismiss")))
+            }
+        }
     }
 }
 
