@@ -75,17 +75,9 @@ struct ContentView: View {
     
     // MARK: - Methods
     func pointsForCurrentRound() -> Int {
-        var difference: Int
         let sliderValueAsInt = Int(sliderValue.rounded())
-        if sliderValueAsInt > target {
-            difference =  sliderValueAsInt - target
-        } else if sliderValueAsInt < target {
-            difference = target - sliderValueAsInt
-        } else {
-            difference = 0
-        }
-        
-        return 100 - difference
+        let difference = target - sliderValueAsInt
+        return  100 - abs(difference)
     }
     
     func updateScore() {
