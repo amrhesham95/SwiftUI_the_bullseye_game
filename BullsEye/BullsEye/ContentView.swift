@@ -13,6 +13,7 @@ struct ContentView: View {
     
     // MARK: - Properties
     @State var isAlertPresented: Bool = false
+    @State var sliderValue: Double = 50
     
     // MARK: - Body
     var body: some View {
@@ -28,8 +29,8 @@ struct ContentView: View {
             
             // Slider row
             HStack {
-                Text("0")
-                Slider(value: .constant(50))
+                Text("1")
+                Slider(value: $sliderValue, in: 1...100)
                 Text("100")
             }
             
@@ -42,7 +43,7 @@ struct ContentView: View {
                 Text("Hit me!")
             }
             .alert(isPresented: $isAlertPresented) {
-                Alert(title: Text("Hello there!"), message: Text("This is my first pop-up"), dismissButton: .default(Text("dismiss")))
+                Alert(title: Text("Hello there!"), message: Text("Slider value is \(Int(sliderValue.rounded()))"), dismissButton: .default(Text("dismiss")))
             }
             Spacer()
             
