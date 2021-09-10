@@ -17,11 +17,25 @@ struct ContentView: View {
     // MARK: - Body
     var body: some View {
         VStack {
-            Text("Welcome to my first app!")
-                .fontWeight(.heavy)
-                .foregroundColor(.green)
-                .padding()
             
+            Spacer()
+            // Target row
+            HStack {
+                Text("Put the bullseye as close as you can to: ")
+                Text("100")
+            }
+            
+            
+            // Slider row
+            HStack {
+                Text("0")
+                Slider(value: .constant(50))
+                Text("100")
+            }
+            
+            Spacer()
+            
+            // Button Row
             Button(action: {
                 isAlertPresented = true
             }) {
@@ -30,8 +44,32 @@ struct ContentView: View {
             .alert(isPresented: $isAlertPresented) {
                 Alert(title: Text("Hello there!"), message: Text("This is my first pop-up"), dismissButton: .default(Text("dismiss")))
             }
+            Spacer()
+            
+            // Score row
+            HStack {
+                Button(action: {}) {
+                    Text("Start over")
+                }
+                
+                Spacer()
+                
+                Text("Score:")
+                Text("999999")
+                Spacer()
+                Text("Round:")
+                Text("999")
+                
+                Spacer()
+                Button(action: {}) {
+                    Text("Info")
+                }
+            }
+            .padding(.bottom, 20)
         }
     }
+    
+    // MARK: - Methods
 }
 
 struct ContentView_Previews: PreviewProvider {
