@@ -15,6 +15,7 @@ struct ContentView: View {
     @State var isAlertPresented: Bool = false
     @State var sliderValue: Double = 50
     @State var target: Int = Int.random(in: 1...100)
+    @State var score: Int = 0
     
     // MARK: - Body
     var body: some View {
@@ -39,12 +40,13 @@ struct ContentView: View {
             
             // Button Row
             Button(action: {
+                updateScore()
                 isAlertPresented = true
             }) {
                 Text("Hit me!")
             }
             .alert(isPresented: $isAlertPresented) {
-                Alert(title: Text("Hello there!"), message: Text("Slider value is \(Int(sliderValue.rounded()))"), dismissButton: .default(Text("dismiss")))
+                Alert(title: Text("Stats"), message: Text(roundInfo()), dismissButton: .default(Text("dismiss")))
             }
             Spacer()
             
@@ -57,7 +59,7 @@ struct ContentView: View {
                 Spacer()
                 
                 Text("Score:")
-                Text("999999")
+                Text("\(score)")
                 Spacer()
                 Text("Round:")
                 Text("999")
@@ -72,6 +74,29 @@ struct ContentView: View {
     }
     
     // MARK: - Methods
+    func pointsForCurrentRound() -> Int {
+        var difference: Int
+        let sliderValueAsInt = Int(sliderValue.rounded())
+        if sliderValueAsInt > target {
+            difference =  sliderValueAsInt - target
+        } else if sliderValueAsInt < target {
+            difference = target - sliderValueAsInt
+        } else {
+            difference = 0
+        }
+        
+        return 100 - difference
+    }
+    
+    func updateScore() {
+        score += pointsForCurrentRound()
+    }
+    
+    func roundInfo() -> String {
+        "The slider's value is \(sliderValue) \n" +
+            "The Target value is \(target) \n" +
+            "This round's score is \(pointsForCurrentRound())"
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
