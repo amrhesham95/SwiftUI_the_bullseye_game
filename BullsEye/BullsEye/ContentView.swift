@@ -17,6 +17,9 @@ struct ContentView: View {
     @State var target: Int = Int.random(in: 1...100)
     @State var score: Int = 0
     @State var round = 1
+    var difference: Int {
+        return abs(target - sliderValueAsInt)
+    }
     var sliderValueAsInt: Int {
         Int(sliderValue.rounded())
     }
@@ -95,7 +98,7 @@ struct ContentView: View {
             bonus = 0
         }
         
-        return  maximumScore - abs(difference) + bonus
+        return  maximumScore - difference + bonus
     }
     
     func updateScore() {
@@ -117,7 +120,6 @@ struct ContentView: View {
     }
     
     func alertTitle() -> String {
-        let difference = abs(sliderValueAsInt - target)
         switch difference {
         case 0:
             return "Perfect!"
