@@ -53,16 +53,16 @@ struct ContentView: View {
             }
             .alert(isPresented: $isAlertPresented) {
                 Alert(title: Text(alertTitle()), message: Text(roundInfo()), dismissButton: .default(Text("dismiss")){
-                    updateScore()
-                    updateTarget()
-                    updateRound()
+                    startNewRound()
                 })
             }
             Spacer()
             
             // Score row
             HStack {
-                Button(action: {}) {
+                Button(action: {
+                    startNewGame()
+                }) {
                     Text("Start over")
                 }
                 
@@ -80,6 +80,9 @@ struct ContentView: View {
                 }
             }
             .padding(.bottom, 20)
+        }
+        .onAppear {
+            startNewRound()
         }
     }
     
@@ -130,6 +133,24 @@ struct ContentView: View {
         default:
             return "Are you even trying?"
         }
+    }
+    
+    func startNewRound() {
+        updateScore()
+        updateRound()
+        resetSliderAndTarget()
+    }
+    
+    func startNewGame() {
+        score = 0
+        round = 1
+        resetSliderAndTarget()
+        
+    }
+    
+    func resetSliderAndTarget() {
+        sliderValue = Double.random(in: 1...100)
+        target = Int.random(in: 1...100)
     }
 }
 
