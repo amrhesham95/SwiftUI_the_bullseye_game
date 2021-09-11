@@ -16,7 +16,10 @@ struct ContentView: View {
     @State var sliderValue: Double = 50
     @State var target: Int = Int.random(in: 1...100)
     @State var score: Int = 0
-    
+    @State var round = 1
+    var sliderValueAsInt: Int {
+        Int(sliderValue.rounded())
+    }
     // MARK: - Body
     var body: some View {
         VStack {
@@ -40,13 +43,17 @@ struct ContentView: View {
             
             // Button Row
             Button(action: {
-                updateScore()
+                
                 isAlertPresented = true
             }) {
                 Text("Hit me!")
             }
             .alert(isPresented: $isAlertPresented) {
-                Alert(title: Text("Stats"), message: Text(roundInfo()), dismissButton: .default(Text("dismiss")))
+                Alert(title: Text(alertTitle()), message: Text(roundInfo()), dismissButton: .default(Text("dismiss")){
+                    updateScore()
+                    updateTarget()
+                    updateRound()
+                })
             }
             Spacer()
             
@@ -62,7 +69,7 @@ struct ContentView: View {
                 Text("\(score)")
                 Spacer()
                 Text("Round:")
-                Text("999")
+                Text("\(round)")
                 
                 Spacer()
                 Button(action: {}) {
@@ -75,19 +82,52 @@ struct ContentView: View {
     
     // MARK: - Methods
     func pointsForCurrentRound() -> Int {
-        let sliderValueAsInt = Int(sliderValue.rounded())
+        let maximumScore = 100
+        let bonus: Int
         let difference = target - sliderValueAsInt
-        return  100 - abs(difference)
+        
+        switch difference {
+        case 0:
+            bonus = 100
+        case 1:
+            bonus = 50
+        default:
+            bonus = 0
+        }
+        
+        return  maximumScore - abs(difference) + bonus
     }
     
     func updateScore() {
         score += pointsForCurrentRound()
     }
     
+    func updateTarget() {
+        target = Int.random(in: 1...100)
+    }
+    
+    func updateRound() {
+        round += round
+    }
+        
     func roundInfo() -> String {
-        "The slider's value is \(sliderValue) \n" +
+        "The slider's value is \(sliderValueAsInt) \n" +
             "The Target value is \(target) \n" +
             "This round's score is \(pointsForCurrentRound())"
+    }
+    
+    func alertTitle() -> String {
+        let difference = abs(sliderValueAsInt - target)
+        switch difference {
+        case 0:
+            return "Perfect!"
+        case 1...5:
+            return "You almost had it!"
+        case 6...10:
+            return "Not Bad"
+        default:
+            return "Are you even trying?"
+        }
     }
 }
 
