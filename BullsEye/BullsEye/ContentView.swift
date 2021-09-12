@@ -29,7 +29,7 @@ struct ContentView: View {
             VStack {
                 
                 Spacer()
-                
+                    .navigationBarTitle("🎯 Bullseye 🎯")
                 // Target row
                 HStack {
                     Text("Put the bullseye as close as you can to: ")
@@ -45,6 +45,7 @@ struct ContentView: View {
                     Text("1")
                         .modifier(LabelStyle())
                     Slider(value: $sliderValue, in: 1...100)
+                        .animation(.easeOut)
                     Text("100")
                         .modifier(LabelStyle())
                 }
