@@ -25,101 +25,101 @@ struct ContentView: View {
     }
     // MARK: - Body
     var body: some View {
-        VStack {
-            
-            Spacer()
-            
-            // Target row
-            HStack {
-                Text("Put the bullseye as close as you can to: ")
-                    .modifier(LabelStyle())
+        NavigationView {
+            VStack {
                 
-                Text("\(target)")
-                    .modifier(ValueStyle())
-            }
-            
-            
-            // Slider row
-            HStack {
-                Text("1")
-                    .modifier(LabelStyle())
-                Slider(value: $sliderValue, in: 1...100)
-                Text("100")
-                    .modifier(LabelStyle())
-            }
-            
-            Spacer()
-            
-            // Button Row
-            Button(action: {
+                Spacer()
                 
-                isAlertPresented = true
-            }) {
-                Text("Hit me!")
-                    .modifier(ButtonLargeTextStyle())            }
-            .background(Image("Button"))
-            .shadow(color: Color.black, radius: 5, x: 2, y: 2)
-            .alert(isPresented: $isAlertPresented) {
-                Alert(title: Text(alertTitle()), message: Text(roundInfo()), dismissButton: .default(Text("dismiss")){
-                    startNewRound()
-                })
-            }
-            
-            Spacer()
-            
-            // Score row
-            HStack {
+                // Target row
+                HStack {
+                    Text("Put the bullseye as close as you can to: ")
+                        .modifier(LabelStyle())
+                    
+                    Text("\(target)")
+                        .modifier(ValueStyle())
+                }
+                
+                
+                // Slider row
+                HStack {
+                    Text("1")
+                        .modifier(LabelStyle())
+                    Slider(value: $sliderValue, in: 1...100)
+                    Text("100")
+                        .modifier(LabelStyle())
+                }
+                
+                Spacer()
+                
+                // Button Row
                 Button(action: {
-                    startNewGame()
+                    
+                    isAlertPresented = true
                 }) {
-                    HStack {
-                        Image("StartOverIcon")
-                            .renderingMode(.template)
-                        Text("Start over") .modifier(ButtonSmallTextStyle())
-                    }
-                }.background(Image("Button"))
-                
-                
-               
-                
-                Spacer()
-                
-                Text("Score:")
-                    .modifier(LabelStyle())
-                
-                Text("\(score)")
-                    .modifier(ValueStyle())
+                    Text("Hit me!")
+                        .modifier(ButtonLargeTextStyle())            }
+                .background(Image("Button"))
+                .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+                .alert(isPresented: $isAlertPresented) {
+                    Alert(title: Text(alertTitle()), message: Text(roundInfo()), dismissButton: .default(Text("dismiss")){
+                        startNewRound()
+                    })
+                }
                 
                 Spacer()
                 
-                Text("Round:")
-                    .modifier(LabelStyle())
+                // Score row
+                HStack {
+                    Button(action: {
+                        startNewGame()
+                    }) {
+                        HStack {
+                            Image("StartOverIcon")
+                                .renderingMode(.template)
+                            Text("Start over") .modifier(ButtonSmallTextStyle())
+                        }
+                    }.background(Image("Button"))
+                    
+                    
+                   
+                    
+                    Spacer()
+                    
+                    Text("Score:")
+                        .modifier(LabelStyle())
+                    
+                    Text("\(score)")
+                        .modifier(ValueStyle())
+                    
+                    Spacer()
+                    
+                    Text("Round:")
+                        .modifier(LabelStyle())
+                    
+                    Text("\(round)")
+                        .modifier(ValueStyle())
+                    
+                    Spacer()
+                    
+                    NavigationLink(destination: AboutView()) {
+                        HStack {
+                            Image("InfoIcon")
+                                .renderingMode(.template)
+                            Text("Info")
+                                .modifier(ButtonSmallTextStyle())
+                        }
+                    }.background(Image("Button"))
+                    
+                } // HStack (Score row)
+                .padding(.bottom, 20)
+                .accentColor(.blue)
                 
-                Text("\(round)")
-                    .modifier(ValueStyle())
-                
-                Spacer()
-                
-                Button(action: {
-                    print("info button pressed")
-                }) {
-                    HStack {
-                        Image("InfoIcon")
-                            .renderingMode(.template)
-                        Text("Info")
-                            .modifier(ButtonSmallTextStyle())
-                    }
-                }.background(Image("Button"))
-                
-            } // HStack (Score row)
-            .padding(.bottom, 20)
-            .accentColor(.blue)
-            
-        } // VStack (Container)
-        .onAppear {
-            startNewRound()
+            } // VStack (Container)
+            .onAppear {
+                startNewRound()
+            }
+            .background(Image("Background"))
         }
-        .background(Image("Background"))
     }
     
     // MARK: - Methods

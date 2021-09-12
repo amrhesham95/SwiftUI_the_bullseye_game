@@ -16,6 +16,9 @@
 		EFD4835B26ECC9C900C737D1 /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD4835A26ECC9C900C737D1 /* Shadow.swift */; };
 		EFD4F2FF26EDB23D004F278B /* ButtonLargeTextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD4F2FE26EDB23D004F278B /* ButtonLargeTextStyle.swift */; };
 		EFD4F30226EDB257004F278B /* ButtonSmallTextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD4F30126EDB257004F278B /* ButtonSmallTextStyle.swift */; };
+		EFD4F30926EDBC60004F278B /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD4F30826EDBC60004F278B /* AboutView.swift */; };
+		EFD4F30C26EDBE3E004F278B /* AboutHeadingStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD4F30B26EDBE3E004F278B /* AboutHeadingStyle.swift */; };
+		EFD4F30F26EDBE4F004F278B /* AboutBodyStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD4F30E26EDBE4F004F278B /* AboutBodyStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		EFD4835A26ECC9C900C737D1 /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
 		EFD4F2FE26EDB23D004F278B /* ButtonLargeTextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonLargeTextStyle.swift; sourceTree = "<group>"; };
 		EFD4F30126EDB257004F278B /* ButtonSmallTextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSmallTextStyle.swift; sourceTree = "<group>"; };
+		EFD4F30826EDBC60004F278B /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		EFD4F30B26EDBE3E004F278B /* AboutHeadingStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutHeadingStyle.swift; sourceTree = "<group>"; };
+		EFD4F30E26EDBE4F004F278B /* AboutBodyStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutBodyStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +70,7 @@
 			children = (
 				EF71FE9226E7603C0010AD4B /* BullsEyeApp.swift */,
 				EF71FE9426E7603C0010AD4B /* ContentView.swift */,
+				EFD4F30826EDBC60004F278B /* AboutView.swift */,
 				EFD4835926ECC9B900C737D1 /* Styling */,
 				EF71FE9626E7603C0010AD4B /* Assets.xcassets */,
 				EF71FE9B26E7603C0010AD4B /* Info.plist */,
@@ -88,6 +95,8 @@
 				EFD4835A26ECC9C900C737D1 /* Shadow.swift */,
 				EFD4F2FE26EDB23D004F278B /* ButtonLargeTextStyle.swift */,
 				EFD4F30126EDB257004F278B /* ButtonSmallTextStyle.swift */,
+				EFD4F30B26EDBE3E004F278B /* AboutHeadingStyle.swift */,
+				EFD4F30E26EDBE4F004F278B /* AboutBodyStyle.swift */,
 			);
 			path = Styling;
 			sourceTree = "<group>";
@@ -161,12 +170,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFD4F30926EDBC60004F278B /* AboutView.swift in Sources */,
 				EF71FE9526E7603C0010AD4B /* ContentView.swift in Sources */,
 				EFD4835626ECC84D00C737D1 /* ValueStyle.swift in Sources */,
 				EFD4F30226EDB257004F278B /* ButtonSmallTextStyle.swift in Sources */,
 				EFD4F2FF26EDB23D004F278B /* ButtonLargeTextStyle.swift in Sources */,
+				EFD4F30F26EDBE4F004F278B /* AboutBodyStyle.swift in Sources */,
 				EFD4835B26ECC9C900C737D1 /* Shadow.swift in Sources */,
 				EFD4835326ECC81400C737D1 /* LabelStyle.swift in Sources */,
+				EFD4F30C26EDBE3E004F278B /* AboutHeadingStyle.swift in Sources */,
 				EF71FE9326E7603C0010AD4B /* BullsEyeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
