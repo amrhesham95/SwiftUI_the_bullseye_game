@@ -28,18 +28,24 @@ struct ContentView: View {
         VStack {
             
             Spacer()
+            
             // Target row
             HStack {
                 Text("Put the bullseye as close as you can to: ")
+                    .modifier(LabelStyle())
+                
                 Text("\(target)")
+                    .modifier(ValueStyle())
             }
             
             
             // Slider row
             HStack {
                 Text("1")
+                    .modifier(LabelStyle())
                 Slider(value: $sliderValue, in: 1...100)
                 Text("100")
+                    .modifier(LabelStyle())
             }
             
             Spacer()
@@ -50,12 +56,15 @@ struct ContentView: View {
                 isAlertPresented = true
             }) {
                 Text("Hit me!")
-            }
+                    .modifier(ButtonLargeTextStyle())            }
+            .background(Image("Button"))
+            .shadow(color: Color.black, radius: 5, x: 2, y: 2)
             .alert(isPresented: $isAlertPresented) {
                 Alert(title: Text(alertTitle()), message: Text(roundInfo()), dismissButton: .default(Text("dismiss")){
                     startNewRound()
                 })
             }
+            
             Spacer()
             
             // Score row
@@ -63,27 +72,54 @@ struct ContentView: View {
                 Button(action: {
                     startNewGame()
                 }) {
-                    Text("Start over")
-                }
+                    HStack {
+                        Image("StartOverIcon")
+                            .renderingMode(.template)
+                        Text("Start over") .modifier(ButtonSmallTextStyle())
+                    }
+                }.background(Image("Button"))
+                
+                
+               
                 
                 Spacer()
                 
                 Text("Score:")
+                    .modifier(LabelStyle())
+                
                 Text("\(score)")
-                Spacer()
-                Text("Round:")
-                Text("\(round)")
+                    .modifier(ValueStyle())
                 
                 Spacer()
-                Button(action: {}) {
-                    Text("Info")
-                }
-            }
+                
+                Text("Round:")
+                    .modifier(LabelStyle())
+                
+                Text("\(round)")
+                    .modifier(ValueStyle())
+                
+                Spacer()
+                
+                Button(action: {
+                    print("info button pressed")
+                }) {
+                    HStack {
+                        Image("InfoIcon")
+                            .renderingMode(.template)
+                        Text("Info")
+                            .modifier(ButtonSmallTextStyle())
+                    }
+                }.background(Image("Button"))
+                
+            } // HStack (Score row)
             .padding(.bottom, 20)
-        }
+            .accentColor(.blue)
+            
+        } // VStack (Container)
         .onAppear {
             startNewRound()
         }
+        .background(Image("Background"))
     }
     
     // MARK: - Methods
@@ -153,6 +189,8 @@ struct ContentView: View {
         target = Int.random(in: 1...100)
     }
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

@@ -11,6 +11,11 @@
 		EF71FE9526E7603C0010AD4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF71FE9426E7603C0010AD4B /* ContentView.swift */; };
 		EF71FE9726E7603C0010AD4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF71FE9626E7603C0010AD4B /* Assets.xcassets */; };
 		EF71FE9A26E7603C0010AD4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF71FE9926E7603C0010AD4B /* Preview Assets.xcassets */; };
+		EFD4835326ECC81400C737D1 /* LabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD4835226ECC81400C737D1 /* LabelStyle.swift */; };
+		EFD4835626ECC84D00C737D1 /* ValueStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD4835526ECC84D00C737D1 /* ValueStyle.swift */; };
+		EFD4835B26ECC9C900C737D1 /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD4835A26ECC9C900C737D1 /* Shadow.swift */; };
+		EFD4F2FF26EDB23D004F278B /* ButtonLargeTextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD4F2FE26EDB23D004F278B /* ButtonLargeTextStyle.swift */; };
+		EFD4F30226EDB257004F278B /* ButtonSmallTextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD4F30126EDB257004F278B /* ButtonSmallTextStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +25,11 @@
 		EF71FE9626E7603C0010AD4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF71FE9926E7603C0010AD4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EF71FE9B26E7603C0010AD4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFD4835226ECC81400C737D1 /* LabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelStyle.swift; sourceTree = "<group>"; };
+		EFD4835526ECC84D00C737D1 /* ValueStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueStyle.swift; sourceTree = "<group>"; };
+		EFD4835A26ECC9C900C737D1 /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
+		EFD4F2FE26EDB23D004F278B /* ButtonLargeTextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonLargeTextStyle.swift; sourceTree = "<group>"; };
+		EFD4F30126EDB257004F278B /* ButtonSmallTextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSmallTextStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +64,7 @@
 			children = (
 				EF71FE9226E7603C0010AD4B /* BullsEyeApp.swift */,
 				EF71FE9426E7603C0010AD4B /* ContentView.swift */,
+				EFD4835926ECC9B900C737D1 /* Styling */,
 				EF71FE9626E7603C0010AD4B /* Assets.xcassets */,
 				EF71FE9B26E7603C0010AD4B /* Info.plist */,
 				EF71FE9826E7603C0010AD4B /* Preview Content */,
@@ -67,6 +78,18 @@
 				EF71FE9926E7603C0010AD4B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EFD4835926ECC9B900C737D1 /* Styling */ = {
+			isa = PBXGroup;
+			children = (
+				EFD4835226ECC81400C737D1 /* LabelStyle.swift */,
+				EFD4835526ECC84D00C737D1 /* ValueStyle.swift */,
+				EFD4835A26ECC9C900C737D1 /* Shadow.swift */,
+				EFD4F2FE26EDB23D004F278B /* ButtonLargeTextStyle.swift */,
+				EFD4F30126EDB257004F278B /* ButtonSmallTextStyle.swift */,
+			);
+			path = Styling;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +162,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF71FE9526E7603C0010AD4B /* ContentView.swift in Sources */,
+				EFD4835626ECC84D00C737D1 /* ValueStyle.swift in Sources */,
+				EFD4F30226EDB257004F278B /* ButtonSmallTextStyle.swift in Sources */,
+				EFD4F2FF26EDB23D004F278B /* ButtonLargeTextStyle.swift in Sources */,
+				EFD4835B26ECC9C900C737D1 /* Shadow.swift in Sources */,
+				EFD4835326ECC81400C737D1 /* LabelStyle.swift in Sources */,
 				EF71FE9326E7603C0010AD4B /* BullsEyeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
